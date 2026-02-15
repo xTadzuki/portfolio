@@ -1,0 +1,273 @@
+.reveal{
+  opacity:0;
+  transform: translateY(14px);
+  filter: blur(10px);
+  transition: opacity var(--t) var(--ease),
+              transform var(--t) var(--ease),
+              filter var(--t) var(--ease);
+}
+.reveal.is-in{
+  opacity:1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+@keyframes popIn{
+  from{ opacity:0; transform: translateY(16px) scale(.985); filter: blur(10px); }
+  to{ opacity:1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+/* MARQUEE */
+.marquee{
+  display:flex;
+  overflow:hidden;
+  user-select:none;
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+.marquee__track{
+  display:flex;
+  gap: 0;
+  will-change: transform;
+  animation-timing-function: linear;
+}
+.marquee__item{ 
+  white-space:nowrap;
+  padding-right: 120px;
+}
+
+@keyframes marqueeRtl{
+  0%{ transform: translateX(0); }
+  100%{ transform: translateX(-50%); }
+}
+@keyframes marqueeLtr{
+  0%{ transform: translateX(-50%); }
+  100%{ transform: translateX(0); }
+}
+
+/* SCENE TRANSITION - AMÉLIORÉES */
+.sceneFadeOut{ animation: sceneOutEnhanced 500ms cubic-bezier(0.4, 0, 0.6, 1) both; }
+.sceneFadeIn{ animation: sceneInEnhanced 700ms cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+
+/* Transition sortie - Zoom spatial avec rotation */
+@keyframes sceneOutEnhanced {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.85) rotate(2deg);
+    filter: blur(20px);
+  }
+}
+
+/* Transition entrée - Zoom spatial avec contre-rotation */
+@keyframes sceneInEnhanced {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(1.15) rotate(-2deg);
+    filter: blur(25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+    filter: blur(0);
+  }
+}
+
+/* Animation flottante astronaute */
+@keyframes astroFloat {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-8px) rotate(0deg);
+  }
+}
+
+@keyframes breatheGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 14px rgba(195,120,255,.18));
+  }
+  50% {
+    filter: drop-shadow(0 0 26px rgba(195,120,255,.32));
+  }
+}
+
+/* OK (ne bouge pas) */
+.hud__icon,
+.hudOpen{
+  animation: breatheGlow 3.8s ease-in-out infinite;
+}
+
+/* Bouton audio */
+.hud__audio {
+  margin-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.hud__audio svg {
+  width: 20px;
+  height: 20px;
+  color: rgba(255,255,255,0.9);
+  transition: color 0.3s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+.hud__audio.muted svg {
+  color: rgba(255,255,255,0.3);
+}
+
+.hud__audio.muted .audio-waves {
+  opacity: 0.2;
+}
+
+.hud__audio:hover svg {
+  color: rgba(195, 120, 255, 1);
+}
+
+/* Titres : mieux de faire varier l'opacité du glow (pas transform) */
+@keyframes titlePulse {
+  0%,100% { text-shadow: 0 0 20px rgba(180,100,255,.35); }
+  50% { text-shadow: 0 0 34px rgba(180,100,255,.55); }
+}
+.sceneTitle,
+.home__name{
+  animation: titlePulse 4.6s ease-in-out infinite;
+}
+
+/* ========================================
+   EFFETS VISUELS AVANCÉS
+   ======================================== */
+
+/* Scintillement des étoiles */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+/* Effet néon clignotant pour titres */
+@keyframes neonBlink {
+  0%, 100% { 
+    text-shadow: 
+      0 0 10px rgba(180, 100, 255, 0.3),
+      0 0 20px rgba(180, 100, 255, 0.2);
+  }
+  50% { 
+    text-shadow: 
+      0 0 20px rgba(180, 100, 255, 0.6),
+      0 0 40px rgba(180, 100, 255, 0.4),
+      0 0 60px rgba(120, 205, 255, 0.3);
+  }
+}
+
+/* Bordures avec dégradé animé */
+@keyframes borderFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Effet liquide (shimmer) */
+@keyframes liquidShimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Lueur pulsante */
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 15px rgba(195, 120, 255, 0.3),
+      0 0 30px rgba(120, 205, 255, 0.2);
+  }
+  50% {
+    box-shadow: 
+      0 0 25px rgba(195, 120, 255, 0.5),
+      0 0 50px rgba(120, 205, 255, 0.3),
+      0 0 75px rgba(195, 120, 255, 0.2);
+  }
+}
+
+/* Effet ripple */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Animation flottante des nébuleuses */
+@keyframes nebulaFloat {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+/* ========================================
+   VAGUE LUMINEUSE DE TRANSITION
+   ======================================== */
+
+.transition-sweep {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 40%,
+    rgba(195, 120, 255, 0.08) 45%,
+    rgba(120, 205, 255, 0.10) 50%,
+    rgba(195, 120, 255, 0.08) 55%,
+    transparent 60%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  background-position: -100% 0;
+  mix-blend-mode: screen;
+  opacity: 0;
+}
+
+.transition-sweep.active {
+  animation: lightSweep 800ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes lightSweep {
+  0% {
+    opacity: 0;
+    background-position: -100% 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    background-position: 200% 0;
+  }
+}
+

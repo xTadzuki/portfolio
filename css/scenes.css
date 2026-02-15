@@ -1,0 +1,285 @@
+/* =========================================
+   SCENES.CSS — PRÊT À COLLER (corrigé)
+   - Home : CTA plus bas (sur planète)
+   - Skills : grid sans margin énorme
+   - Formations/Projets : header + flèches FIXES
+========================================= */
+
+/* ---------- Titres / Kicker ---------- */
+
+.sceneTitle{
+  font-family: var(--font-title);
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  text-align:center;
+  margin: 0;
+  color: transparent;
+  -webkit-text-stroke: 2px #fff;
+  text-shadow: 0 0 20px rgba(180, 100, 255, 0.4);
+  font-size: clamp(42px, 4.4vw, 60px);
+  animation: neonBlink 3s ease-in-out infinite;
+}
+
+.sceneKicker{
+  font-family: var(--font-title);
+  letter-spacing:.15em;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 14px;
+  opacity: 1;
+  text-shadow: 0 0 10px rgba(255,255,255,0.6);
+}
+
+/* ---------- Home ---------- */
+
+.home{
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: flex-start;
+  height: 100vh;
+  padding-top: 12vh;
+  position: relative;
+}
+
+.home__hero{
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items:center;
+  width: 100%;
+  position: relative;
+}
+
+.home__name{
+  font-size: clamp(42px, 4.4vw, 60px);
+  font-family: var(--font-title);
+  letter-spacing:.05em;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 2px #fff;
+  text-shadow: 0 0 20px rgba(180, 100, 255, 0.5);
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+/* Bouton "CLIQUE POUR OUVRIR" (HUD Open) placé plus bas */
+.home #btnOpenHome,
+.home__hero .hudOpen{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 68vh;        /* <-- AUGMENTE pour le descendre (ex: 68vh) */
+  margin-top: 0;    /* on neutralise ton margin-top actuel */
+}
+
+.home__hero .dialog{
+  position: absolute;
+  left: 12%;
+  transform: translateX(-50%);
+  top: 55vh;        /* <-- AUGMENTE pour descendre (ex: 55vh) */
+  margin-top: 0 !important;
+}
+/* ---------- Skills ---------- */
+
+.skillsGrid{
+  margin-top: clamp(300px, 50vh, 700px);
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.skillCard{
+  padding: 30px 20px;
+  border-radius: 12px;
+  border:1px solid rgba(255,255,255,.2);
+  background: rgba(255,255,255,.05);
+  backdrop-filter: blur(8px);
+  text-align:center;
+  transition: transform .25s ease, background .25s ease, border-color .25s ease, box-shadow .25s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Effet liquide shimmer */
+.skillCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(195, 120, 255, 0.2),
+    rgba(120, 205, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.skillCard:hover::before {
+  left: 100%;
+}
+
+.skillCard:hover{
+  transform: translateY(-5px);
+  background: rgba(255,255,255,.1);
+  border-color: rgba(255,255,255,.6);
+  box-shadow: 
+    0 10px 30px rgba(180, 100, 255, 0.3),
+    0 0 20px rgba(120, 205, 255, 0.2);
+}
+
+.skillCard span{
+  letter-spacing: .08em;
+  font-size: 24px;
+  color: #fff;
+  font-family: var(--font-title);
+}
+
+/* ---------- Formations / Projets : layout FIXE ---------- */
+/* Ces wrappers doivent être présents dans le HTML rendu :
+   <div class="container sceneFrame">
+     <div class="sceneTop">...</div>
+     <div class="sceneBody">...</div>
+     <div class="sceneArrows">...</div>
+   </div>
+*/
+
+.sceneFrame{
+  position: relative;
+  width: min(var(--maxw), 100%);
+  height: 100%;
+  min-height: 100vh;
+}
+
+/* Zone du haut FIXE (ne bouge jamais) */
+.sceneTop{
+  position: absolute;
+  top: clamp(22px, 4vh, 54px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(980px, 92vw);
+  text-align: center;
+  z-index: 5;
+}
+
+/* Zone centrale (CTA ou Dialog) : reserve un espace stable */
+.sceneBody{
+  position: absolute;
+  top: clamp(620px, 140vh, 430px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(900px, 92vw);
+  z-index: 4;
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+}
+
+/* Flèches FIXES (milieu de l’écran) */
+.sceneArrows{
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+}
+
+.sceneArrows .arrowBtn{
+  pointer-events: auto;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(4px);
+  cursor:pointer;
+  display:grid;
+  place-items:center;
+  padding:0;
+  transition: transform .25s ease, background .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+.sceneArrows .arrowBtn img{
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display:block;
+  filter: drop-shadow(0 0 5px rgba(255,255,255,0.5));
+}
+
+.sceneArrows .arrowBtn:hover{
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.8);
+  transform: translateY(-50%) scale(1.07);
+  box-shadow: 0 0 20px rgba(180, 100, 255, 0.4);
+}
+
+.sceneArrows .arrowBtn--left{ left: clamp(18px, 3vw, 46px); }
+.sceneArrows .arrowBtn--right{ right: clamp(18px, 3vw, 46px); }
+
+/* Ancien sliderNav (tu peux garder, mais non utilisé si tu passes au layout fixe) */
+.sliderNav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap: 20px;
+  margin-top: 40px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Sous-titres formations/projets */
+.subTitle{
+  font-family: var(--font-title);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  font-size: clamp(28px, 4vw, 48px);
+  margin: 0;
+  text-align:center;
+  color: #fff;
+  text-shadow: 0 0 15px rgba(180, 100, 255, 0.5);
+}
+
+.subPeriod{
+  margin: 10px 0 0 0;
+  text-align:center;
+  letter-spacing:.1em;
+  text-transform: uppercase;
+  font-family: var(--font-title);
+  color: rgba(255,255,255,0.85);
+  font-size: 18px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 880px){
+  .skillsGrid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .sceneTitle{ font-size: clamp(34px, 7vw, 42px); }
+  .home__name{ font-size: clamp(34px, 7vw, 42px); }
+  .subTitle{ font-size: clamp(22px, 6vw, 32px); }
+
+  .sceneArrows .arrowBtn{
+    width: 60px;
+    height: 60px;
+  }
+  .sceneArrows .arrowBtn img{
+    width: 34px;
+    height: 34px;
+  }
+
+  /* CTA home un peu plus haut sur mobile */
+  .home #btnOpenHome,
+  .home .hudOpen{
+    bottom: clamp(95px, 16vh, 170px);
+  }
+}

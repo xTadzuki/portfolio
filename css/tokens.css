@@ -1,0 +1,33 @@
+:root{
+  --bg0:#070716;
+  --glass: rgba(255,255,255,.06);
+
+  --stroke: rgba(205, 180, 255, .45);
+  --stroke2: rgba(205, 180, 255, .22);
+
+  --text: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.70);
+
+  --neon: rgba(195, 120, 255, .92);
+  --neon2: rgba(120, 205, 255, .85);
+
+  --shadow: 0 30px 70px rgba(0,0,0,.45);
+  --blur: 14px;
+
+  --r: 18px;
+  --pad: 18px;
+
+  --ease: cubic-bezier(.2,.9,.2,1);
+  --t-fast: 180ms;
+  --t: 420ms;
+
+  /* Typos */
+  --font-ui: "Bebas Neue", system-ui, sans-serif;
+  --font-title: "Death Star", "Bebas Neue", system-ui, sans-serif;
+
+  /* Layout */
+  --maxw: 1100px;
+
+  /* BG image set by JS */
+  --bg-img: none;
+}

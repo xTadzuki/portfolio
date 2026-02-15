@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Marie — Portfolio</title>
+
+  <!-- Bebas Neue -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/tokens.css" />
+  <link rel="stylesheet" href="./css/base.css" />
+  <link rel="stylesheet" href="./css/animations.css" />
+  <link rel="stylesheet" href="./css/ui.css" />
+  <link rel="stylesheet" href="./css/scenes.css" />
+  <link rel="stylesheet" href="./css/scene-nav.css" />
+</head>
+
+<body>
+  <div id="app" class="game" data-scene="home">
+    <!-- BACKDROP (image via --bg-img) -->
+    <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+
+    <!-- ETOILES (par-dessus le fond) -->
+    <div class="stars-overlay" aria-hidden="true"></div>
+
+    <!-- PLANETE + ASTRONAUTE -->
+    <div class="planetWrap" aria-hidden="true">
+  <div class="planetFx" id="planetFx">
+    <img class="planet" id="planet" src="./assets/img/planete.png" alt="">
+  </div>
+
+  <div class="astroFx" id="astroFx">
+    <img class="astro" id="astro" src="./assets/img/astronaute-accueil.png" alt="">
+  </div>
+</div>
+
+
+    <!-- HUD: socials -->
+    <aside class="hud hud--left" aria-label="Réseaux">
+      <a class="hud__icon" href="#" data-social="github" aria-label="GitHub" title="GitHub">
+        <img src="./assets/img/github.png" alt="">
+      </a>
+      <a class="hud__icon" href="#" data-social="instagram" aria-label="Instagram" title="Instagram">
+        <img src="./assets/img/instagram.png" alt="">
+      </a>
+      <a class="hud__icon" href="#" data-social="linkedin" aria-label="LinkedIn" title="LinkedIn">
+        <img src="./assets/img/linkedin.png" alt="">
+      </a>
+      
+      <!-- Bouton aud audio -->
+      <button class="hud__icon hud__audio" id="audioToggle" aria-label="Toggle Audio" title="Audio">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11 5L6 9H2V15H6L11 19V5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path class="audio-waves" d="M15.54 8.46C16.4774 9.39764 17.0039 10.6692 17.0039 11.995C17.0039 13.3208 16.4774 14.5924 15.54 15.53M18.07 5.93C19.9447 7.80528 20.9979 10.3492 20.9979 13C20.9979 15.6508 19.9447 18.1947 18.07 20.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </aside>
+
+    <!-- HUD: Contact -->
+    <button class="hud hud--contact" id="btnContact" type="button">
+      CONTACTEZ MOI
+    </button>
+
+    <!-- Menu Navigation Scènes -->
+    <nav class="scene-nav" aria-label="Navigation des scènes">
+      <a href="#/" class="scene-nav__item" data-scene="home" title="Accueil">
+        <span class="scene-nav__dot"></span>
+        <span class="scene-nav__label">Accueil</span>
+      </a>
+      <a href="#/skills" class="scene-nav__item" data-scene="skills" title="Compétences">
+        <span class="scene-nav__dot"></span>
+        <span class="scene-nav__label">Compétences</span>
+      </a>
+      <a href="#/formations" class="scene-nav__item" data-scene="formations" title="Formations">
+        <span class="scene-nav__dot"></span>
+        <span class="scene-nav__label">Formations</span>
+      </a>
+      <a href="#/projects" class="scene-nav__item" data-scene="projects" title="Projets">
+        <span class="scene-nav__dot"></span>
+        <span class="scene-nav__label">Projets</span>
+      </a>
+    </nav>
+
+    <!-- Hints -->
+    <div class="hint hint--left" aria-hidden="true">
+      <div class="hint__label">ENTRER</div>
+      <img class="hint__img" src="./assets/img/enter.png" alt="">
+    </div>
+
+    <div class="hint hint--right" aria-hidden="true">
+      <div class="hint__label">SCROLL</div>
+      <img class="hint__img" src="./assets/img/scroll.png" alt="">
+    </div>
+
+    <!-- SCENE ROOT -->
+    <main class="scene" id="scene" role="main"></main>
+
+    <!-- CONTACT DRAWER -->
+    <div class="drawerOverlay" id="drawerOverlay" hidden></div>
+
+    <aside class="drawer" id="drawer" aria-label="Contact" aria-hidden="true">
+      <div class="drawer__head">
+        <button class="drawer__back" id="btnDrawerClose" type="button">&lt; RETOUR</button>
+        <h2 class="drawer__title"><span class="drawer__title-inner">CONTACTEZ MOI</span></h2>
+      </div>
+
+      <form class="form" id="contactForm">
+        <label class="form__row">
+          <span class="form__label">EMAIL :</span>
+          <input class="form__input" name="email" type="email" placeholder="votremail@gmail.com" required>
+        </label>
+
+        <label class="form__row">
+          <span class="form__label">SUJET :</span>
+          <input class="form__input" name="subject" type="text" placeholder="Sujet" required>
+        </label>
+
+        <label class="form__row">
+          <span class="form__label">MESSAGE :</span>
+          <textarea class="form__textarea" name="message" rows="6" placeholder="Votre message ici" required></textarea>
+        </label>
+
+        <button class="btn btn--primary" type="submit">ENVOYER</button>
+
+        <div class="drawer__social">
+          <a class="pill" href="#" data-social="github">GitHub</a>
+          <a class="pill" href="#" data-social="instagram">Instagram</a>
+          <a class="pill" href="#" data-social="linkedin">LinkedIn</a>
+        </div>
+      </form>
+    </aside>
+  </div>
+
+  <script src="./js/simple-effects.js"></script>
+  <script src="./js/scene-transition-fx.js"></script>
+  <script src="./js/scene-nav-active.js"></script>
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
