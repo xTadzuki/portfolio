@@ -46,7 +46,7 @@
   100%{ transform: translateX(0); }
 }
 
-/* SCENE TRANSITION - AMÉLIORÉES */
+/* SCENE TRANSITION */
 .sceneFadeOut{ animation: sceneOutEnhanced 500ms cubic-bezier(0.4, 0, 0.6, 1) both; }
 .sceneFadeIn{ animation: sceneInEnhanced 700ms cubic-bezier(0.34, 1.56, 0.64, 1) both; }
 
@@ -97,7 +97,7 @@
   }
 }
 
-/* OK (ne bouge pas) */
+
 .hud__icon,
 .hudOpen{
   animation: breatheGlow 3.8s ease-in-out infinite;
@@ -130,7 +130,7 @@
   color: rgba(195, 120, 255, 1);
 }
 
-/* Titres : mieux de faire varier l'opacité du glow (pas transform) */
+/* Titres */
 @keyframes titlePulse {
   0%,100% { text-shadow: 0 0 20px rgba(180,100,255,.35); }
   50% { text-shadow: 0 0 34px rgba(180,100,255,.55); }

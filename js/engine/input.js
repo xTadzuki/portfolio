@@ -1,6 +1,5 @@
 // engine/input.js
-// Gère Enter + Scroll bas/haut (next/prev) + ESC (close contact) + C (open contact)
-// + hooks pour prev/next item (formations/projets) si tu veux (flèches clavier)
+
 
 export function setupInput({
   onNext,
@@ -75,7 +74,7 @@ export function setupInput({
       return;
     }
 
-    // Navigation item (formations/projets) au clavier si tu veux
+    // Navigation item (formations/projets) au clavier 
     if (e.key === "ArrowLeft") {
       onPrevItem?.();
       return;

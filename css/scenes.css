@@ -1,5 +1,5 @@
 /* =========================================
-   SCENES.CSS — PRÊT À COLLER (corrigé)
+   SCENES.CSS 
    - Home : CTA plus bas (sur planète)
    - Skills : grid sans margin énorme
    - Formations/Projets : header + flèches FIXES
@@ -70,7 +70,7 @@
   left: 50%;
   transform: translateX(-50%);
   top: 68vh;        /* <-- AUGMENTE pour le descendre (ex: 68vh) */
-  margin-top: 0;    /* on neutralise ton margin-top actuel */
+  margin-top: 0;    /* on neutralise margin-top actuel */
 }
 
 .home__hero .dialog{
@@ -142,14 +142,6 @@
   font-family: var(--font-title);
 }
 
-/* ---------- Formations / Projets : layout FIXE ---------- */
-/* Ces wrappers doivent être présents dans le HTML rendu :
-   <div class="container sceneFrame">
-     <div class="sceneTop">...</div>
-     <div class="sceneBody">...</div>
-     <div class="sceneArrows">...</div>
-   </div>
-*/
 
 .sceneFrame{
   position: relative;
@@ -226,7 +218,7 @@
 .sceneArrows .arrowBtn--left{ left: clamp(18px, 3vw, 46px); }
 .sceneArrows .arrowBtn--right{ right: clamp(18px, 3vw, 46px); }
 
-/* Ancien sliderNav (tu peux garder, mais non utilisé si tu passes au layout fixe) */
+/* Ancien sliderNav  */
 .sliderNav{
   display:flex;
   justify-content:space-between;

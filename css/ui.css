@@ -199,10 +199,7 @@
    DIALOG BOX (Accueil2 / Formations / Projets)
 ========================= */
 
-/* IMPORTANT :
-   On ne positionne plus le dialogue avec un margin-top géant.
-   Le placement se fait via .sceneBody (layout fixe).
-*/
+
 .dialog{
   margin-top: 0 !important;
   border-radius: 0;
@@ -279,11 +276,7 @@
    HUD OPEN (CLIQUE POUR OUVRIR) — style maquette
 ========================= */
 
-/* IMPORTANT :
-   Le placement vertical ne doit plus être fait par margin-top.
-   On le place via le layout (home: position absolute sur la planète,
-   formations/projets: via .sceneBody).
-*/
+
 .hudOpen{
   position: relative;
   width: min(420px, 72vw);
@@ -372,7 +365,6 @@
 
 /* =========================
    DRAWER (Contact)
-   -> (je laisse ton style global, mais je corrige l'animation : slide depuis la droite)
 ========================= */
 
 .drawerOverlay{

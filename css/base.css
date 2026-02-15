@@ -1,4 +1,4 @@
-/* OPTIONAL: si tu as Death Star en local, décommente et adapte le chemin
+/* Police Death Star - Chargée pour tous les visiteurs */
 @font-face{
   font-family: "Death Star";
   src: url("../assets/fonts/DeathStar.woff2") format("woff2");
@@ -6,7 +6,6 @@
   font-style: normal;
   font-display: swap;
 }
-*/
 
 *{ box-sizing:border-box; }
 html,body{ height:100%; }
@@ -75,7 +74,7 @@ button,input,textarea{ font:inherit; color:inherit; }
   animation: nebulaFloat 30s ease-in-out infinite;
 }
 
-/* Particules d'étoiles en CSS pur - BEAUCOUP PLUS D'ÉTOILES */
+/* Particules d'étoiles en CSS pur */
 .stars-overlay::before,
 .stars-overlay::after {
   content: '';
@@ -130,7 +129,7 @@ button,input,textarea{ font:inherit; color:inherit; }
     59vw 82vh 1px 0px rgba(255,255,255,0.7),
     81vw 88vh 1px 0px rgba(255,255,255,0.75),
     
-    /* GROUPE 5 - Encore plus ! */
+    /* GROUPE 5*/
     4vw 5vh 1px 0px rgba(255,255,255,0.6),
     14vw 12vh 1px 0px rgba(255,255,255,0.65),
     33vw 5vh 1px 0px rgba(255,255,255,0.7),
@@ -255,7 +254,7 @@ button,input,textarea{ font:inherit; color:inherit; }
   will-change: transform;
 }
 
-/* et ton img astro devient simplement "contenu" */
+/* img astro devient simplement "contenu" */
 .astro{
   position: relative;
   left:auto;
