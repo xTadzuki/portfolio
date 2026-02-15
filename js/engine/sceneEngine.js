@@ -110,7 +110,7 @@ function homeIntroView() {
         </div>
 
         <h1 class="sceneTitle reveal" style="font-size: clamp(25px,3.5vw,46px); line-height: 1;">
-          SALUT MEMBRE DE LA GALAXIE
+          SALUT MEMBR E DE LA GALAXIE
         </h1>
 
         <div class="marquee reveal" data-marquee data-dir="ltr" data-dur="26" style="margin-top: 10px; margin-bottom: 40px; opacity: 0.6;">
@@ -120,7 +120,7 @@ function homeIntroView() {
           </div>
         </div>
 
-        <h2 class="home__name reveal">JE SUIS MARIE</h2>
+        <h2 class="home__name reveal">JE SUIS MAR IE</h2>
 
         ${hudOpenButton("btnOpenHome")}
 
@@ -142,7 +142,7 @@ function homeDialogView() {
         </div>
 
         <h1 class="sceneTitle reveal" style="font-size: clamp(25px,3.5vw,46px); line-height: 1;">
-          SALUT MEMBRE DE LA GALAXIE
+          SALUT MEMBR E DE LA GALAXIE
         </h1>
 
         <div class="marquee reveal" data-marquee data-dir="ltr" data-dur="26" style="margin-top: 10px; margin-bottom: 40px; opacity: 0.6;">

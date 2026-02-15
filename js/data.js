@@ -25,7 +25,7 @@ export const ASSETS = {
 };
 
 export const HOME_DIALOG = {
-  name: "JE SUIS MARIE",
+  name: "JE SUIS MAR IE",
   text:
     "Développeuse web full-stack et designer d’interface, je conçois des expériences web à la fois esthétiques, fluides et performantes. " +
     "J’interviens de la maquette à la mise en production : UI/UX, intégration responsive, développement back-end, base de données et optimisation. " +
