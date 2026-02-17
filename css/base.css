@@ -261,3 +261,62 @@ button,input,textarea{ font:inherit; color:inherit; }
   bottom:auto;
   transform:none;
 }
+
+/* =========================================
+   RESPONSIVE MOBILE
+========================================= */
+
+/* Tablettes et petits écrans */
+@media (max-width: 768px) {
+  .scene {
+    padding: clamp(12px, 3vw, 24px);
+  }
+
+  /* Cacher les hints sur mobile */
+  .hint {
+    display: none !important;
+  }
+
+  .planetWrap {
+    width: min(900px, 95vw);
+    bottom: -4vh;
+  }
+
+  .astro {
+    width: clamp(70px, 11vw, 120px);
+  }
+}
+
+/* Smartphones moyens */
+@media (max-width: 480px) {
+  .scene {
+    padding: 10px;
+  }
+
+  .planetWrap {
+    width: min(700px, 90vw);
+    bottom: -6vh;
+  }
+
+  .astro {
+    width: clamp(60px, 12vw, 90px);
+  }
+
+  /* Réduction subtile des étoiles sur très petits écrans */
+  .stars-overlay::before,
+  .stars-overlay::after {
+    opacity: 0.7;
+  }
+}
+
+/* Petits smartphones */
+@media (max-width: 360px) {
+  .planetWrap {
+    width: min(600px, 85vw);
+    bottom: -8vh;
+  }
+
+  .astro {
+    width: 60px;
+  }
+}

@@ -99,14 +99,52 @@
   }
 }
 
-/* Responsive */
+/* =========================================
+   RESPONSIVE MOBILE
+========================================= */
+
 @media (max-width: 768px) {
   .scene-nav {
-    right: 15px;
-    gap: 15px;
+    right: 12px;
+    gap: 16px;
   }
   
   .scene-nav__label {
     display: none;
+  }
+
+  /* Augmenter la taille du dot pour faciliter le clic tactile */
+  .scene-nav__dot {
+    width: 12px;
+    height: 12px;
+  }
+
+  .scene-nav__item {
+    padding: 10px 0;
+  }
+}
+
+/* Smartphones moyens */
+@media (max-width: 480px) {
+  .scene-nav {
+    right: 10px;
+    gap: 14px;
+  }
+
+  .scene-nav__dot {
+    width: 14px;
+    height: 14px;
+    border-width: 2px;
+  }
+
+  .scene-nav__item {
+    padding: 12px 0;
+  }
+}
+
+/* Petits smartphones */
+@media (max-width: 360px) {
+  .scene-nav {
+    right: 8px;
   }
 }

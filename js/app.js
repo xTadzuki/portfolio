@@ -47,9 +47,64 @@ function setupDrawer() {
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    alert("Message prêt à être envoyé (à connecter à ton système).");
-    close();
-    form.reset();
+    
+    // Vérifier que EmailJS est chargé
+    if (typeof window.emailjs === 'undefined') {
+      alert("❌ Erreur: EmailJS n'est pas chargé. Veuillez rafraîchir la page.");
+      console.error("EmailJS n'est pas disponible. Vérifiez que le script CDN est bien chargé.");
+      return;
+    }
+    
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    
+    // Désactiver le bouton et afficher un indicateur de chargement
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Envoi...";
+    
+    // Récupérer les valeurs du formulaire
+    const templateParams = {
+      from_name: form.email.value,
+      reply_to: form.email.value,
+      from_email: form.email.value,
+      subject: form.subject.value,
+      message: form.message.value
+    };
+    
+    // Envoyer l'email via EmailJS (en utilisant window.emailjs)
+    window.emailjs.send("service_ft5nqhb", "template_kfcqc3v", templateParams, "zp55xt9iP18vec1Gd")
+      .then(() => {
+        // Succès
+        alert("✅ Message envoyé avec succès ! Je vous répondrai bientôt.");
+        close();
+        form.reset();
+      })
+      .catch((error) => {
+        // Erreur détaillée
+        console.error("❌ Erreur EmailJS complète:", error);
+        console.error("Status:", error.status);
+        console.error("Text:", error.text);
+        
+        let errorMessage = "❌ Erreur lors de l'envoi du message.";
+        
+        if (error.status === 422) {
+          errorMessage += "\n\n🔍 Erreur 422: Les variables du template ne correspondent pas.\nVérifiez la configuration de votre template EmailJS.";
+          console.error("⚠️ Variables envoyées:", templateParams);
+          console.error("💡 Vérifiez que votre template utilise: {{from_email}}, {{reply_to}}, {{subject}}, {{message}}");
+        } else if (error.status === 400) {
+          errorMessage += "\n\n🔍 Erreur 400: Identifiants EmailJS incorrects.";
+        } else if (error.status === 403) {
+          errorMessage += "\n\n🔍 Erreur 403: Service non autorisé.";
+        }
+        
+        errorMessage += "\n\nConsultez la console (F12) pour plus de détails.";
+        alert(errorMessage);
+      })
+      .finally(() => {
+        // Réactiver le bouton
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      });
   });
 
   return { open, close };

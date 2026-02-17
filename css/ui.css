@@ -418,6 +418,7 @@
   margin-bottom: 34px;
   position: relative;
   border: 0;
+  z-index: 1;
 }
 
 /* Titre neon box */
@@ -458,7 +459,7 @@
 }
 
 .drawer__back{
-  position: absolute;
+  position: fixed;
   top: 40px;
   left: 40px;
   border:0;
@@ -469,7 +470,7 @@
   font-size: 24px;
   letter-spacing: .06em;
   transition: text-shadow .25s ease, transform .25s ease;
-  z-index: 20;
+  z-index: 100;
 }
 
 .drawer__back:hover{
@@ -539,4 +540,259 @@
   transform: translateY(-1px);
   background: rgba(255,255,255,.06);
   border-color: rgba(205,180,255,.55);
+}
+
+/* =========================================
+   RESPONSIVE MOBILE
+========================================= */
+
+/* Tablettes et petits écrans */
+@media (max-width: 768px) {
+  /* HUD gauche */
+  .hud--left {
+    left: 20px;
+    top: 30%;
+    gap: 14px;
+  }
+
+  .hud__icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .hud__icon img {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Contact button */
+  .hud--contact {
+    right: 20px;
+    top: 20px;
+    font-size: 20px;
+  }
+
+  /* Hints */
+  .hint {
+    bottom: 20px;
+  }
+
+  .hint--left { left: 20px; }
+  .hint--right { right: 20px; }
+
+  .hint__label {
+    font-size: 16px;
+  }
+
+  .hint__img {
+    width: 60px;
+    height: 60px;
+  }
+
+  /* Dialog box */
+  .dialog {
+    padding: 22px 24px;
+    max-width: 86vw;
+  }
+
+  .dialog__text {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  /* HudOpen button */
+  .hudOpen {
+    width: min(360px, 80vw);
+    height: 76px;
+  }
+
+  .hudOpen__label {
+    font-size: clamp(13px, 3vw, 16px);
+  }
+
+  /* Drawer */
+  .drawer__back {
+    top: 20px;
+    left: 20px;
+    font-size: 18px;
+    z-index: 100;
+  }
+
+  .drawer__title, .sceneTitleBox {
+    font-size: clamp(24px, 5vw, 42px);
+  }
+
+  .form {
+    max-width: 90vw;
+    gap: 18px;
+  }
+
+  .form__label {
+    font-size: 16px;
+  }
+
+  .form__input, .form__textarea {
+    padding: 14px 16px;
+    font-size: 15px;
+  }
+}
+
+/* Smartphones moyens */
+@media (max-width: 480px) {
+  /* HUD gauche */
+  .hud--left {
+    left: 12px;
+    gap: 12px;
+  }
+
+  .hud__icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+  }
+
+  .hud__icon::after {
+    inset: 6px;
+    border-radius: 8px;
+  }
+
+  .hud__icon img {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* Contact button */
+  .hud--contact {
+    right: 12px;
+    top: 12px;
+    font-size: 18px;
+  }
+
+  /* Hints */
+  .hint {
+    bottom: 12px;
+  }
+
+  .hint--left { left: 12px; }
+  .hint--right { right: 12px; }
+
+  .hint__label {
+    font-size: 14px;
+  }
+
+  .hint__img {
+    width: 50px;
+    height: 50px;
+  }
+
+  /* Dialog box */
+  .dialog {
+    padding: 20px 16px;
+    border-width: 1px;
+  }
+
+  .dialog::before,
+  .dialog::after,
+  .dialog__corners::before,
+  .dialog__corners::after {
+    width: 20px;
+    height: 20px;
+  }
+
+  .dialog__text {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* HudOpen button */
+  .hudOpen {
+    width: min(320px, 85vw);
+    height: 70px;
+  }
+
+  .hudOpen__line--top { top: 14px; }
+  .hudOpen__line--bot { bottom: 14px; }
+
+  .hudOpen__corner {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Drawer */
+  .drawer {
+    padding: 16px;
+  }
+
+  .drawer__head {
+    margin-top: 50px;
+  }
+
+  .drawer__back {
+    top: 12px;
+    left: 12px;
+    font-size: 16px;
+    z-index: 100;
+  }
+
+  .drawer__head {
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .form {
+    gap: 16px;
+  }
+
+  .form__input, .form__textarea {
+    padding: 12px 14px;
+  }
+
+  .drawer__social {
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .pill {
+    padding: 6px 14px;
+    font-size: 13px;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 16px;
+  }
+}
+
+/* Petits smartphones */
+@media (max-width: 360px) {
+  .hud--left {
+    left: 10px;
+  }
+
+  .hud__icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .hud--contact {
+    right: 10px;
+    top: 10px;
+    font-size: 16px;
+  }
+
+  .hint__img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .dialog {
+    padding: 16px 12px;
+  }
+
+  .hudOpen {
+    width: min(280px, 90vw);
+    height: 65px;
+  }
 }
